@@ -4,7 +4,7 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    _ = b.addModule("diffz", .{
+    const diffz = b.addModule("diffz", .{
         .root_source_file = b.path("DiffMatchPatch.zig"),
         .target = target,
         .optimize = optimize,
@@ -13,9 +13,7 @@ pub fn build(b: *std.Build) void {
     // Run tests
     const tests = b.addTest(.{
         .name = "tests",
-        .root_source_file = b.path("DiffMatchPatch.zig"),
-        .target = target,
-        .optimize = optimize,
+        .root_module = diffz,
     });
     const step_tests = b.addRunArtifact(tests);
 

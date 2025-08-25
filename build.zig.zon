@@ -1,5 +1,6 @@
 .{
-    .name = "diffz",
+    .name = .diffz,
+    .fingerprint = 0x23937d881b45e9d3,
     .version = "0.0.1",
     .paths = .{
         "DiffMatchPatch.zig",
